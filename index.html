@@ -628,6 +628,52 @@
             }
             
         }
+
+        @media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .logo img {
+        max-width: 120px;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    nav ul {
+        width: 100%;
+    }
+
+    nav ul li {
+        width: 100%;
+        text-align: left;
+        padding: 8px 0;
+    }
+
+    .hero {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+    }
+}
+
     </style>
 </head>
 
@@ -675,14 +721,14 @@
                 </ul>
                 <a href="#services" class="btn">Learn More</a>
             </div>
-            <div class="about-image">
-                <img src="./image/DALL·E 2025-03-01 01.13.59 - A professional digital forensics team working on cybersecurity and data recovery. The scene features experts analyzing data on multiple computer scree.webp" alt="Digital Forensics Team">
-            </div>
+            <picture class="about-image">
+                <source srcset="./image/mobile-image.avif" media="(max-width: 600px)">
+                <source srcset="./image/tablet-image.webp" media="(max-width: 1200px)">
+                <img src="./image/desktop-image.webp" alt="Digital Forensics Team" loading="lazy">
+              </picture>
+            
         </div>
     </div>
-
-
-
 
     <div id="services" class="section">
         <div class="services-container">
@@ -792,12 +838,10 @@
             const navLinks = document.querySelector(".nav-links");
             const navbar = document.querySelector(".navbar");
     
-            // Hamburger menu toggle
             hamburger.addEventListener("click", () => {
                 navLinks.classList.toggle("active");
             });
     
-            // Scroll event for logo shrinking
             window.addEventListener("scroll", () => {
                 if (window.scrollY > 50) {
                     navbar.classList.add("scrolled");
